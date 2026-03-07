@@ -1,0 +1,58 @@
+Important Instructions:
+•	Please read the document thoroughly before you code. 
+•	Please do not change the Business Requirements.
+
+Exercise 1: 
+Create a workflow to extract data from Stock_DataFile_1 and load into a Flat file target. The target should be a pipe delimited file. 
+Exercise 2: 
+Create a workflow to extract data from Stock_DataFile_1and load into the TRADER table.  Use the below DDL to create the trader table.
+CREATE TABLE TRADER 
+(
+TRADER_ID INTEGER, 
+TRADER_FNAME VARCHAR2(100),	
+TRADER_LNAME VARCHAR2(100),	
+TRADER_EMAIL VARCHAR2(100),	
+TRADER_GENDER VARCHAR2(10),	
+TRADER_STATE VARCHAR2(100),	
+STOCK_MARKET VARCHAR2(10),
+STOCK_SYMBOL VARCHAR2(10),	
+STOCK_PRICE DECIMAL(10,2)
+)
+
+Exercise 3: 
+Create a workflow to extract data from Stock_DataFile_1and transform the data using the below logics:
+a.	First Name and Last Name should be concatenated using a ‘-‘
+b.	In case of NULL value in Last Name, hardcode it as LNU
+The target shall be a comma separated Flat file in the below structure
+	Trader_Id,Name,Email,Gender,State
+Exercise 4: 
+Create a workflow to extract data from Stock_DataFile_1and load the flat file target with the list of traders who doesn’t have an email id. 
+The target shall be a tab separated Flat file in the below structure
+	Trader_Id,Name,Gender,State
+Exercise 5: 
+Create a workflow to extract data from Stock_DataFile_1and load the 2 flat file targets. One for Male and One for female traders.
+The targets shall be a tab separated Flat file in the below structure
+	Trader_Id,Name,Gender,State
+Exercise 6: 
+Create a workflow to extract data from Stock_DataFile_1and load the flat file target, based on the Descending stock price order. The targets shall be a comma separated Flat file in the below structure
+	Trader_Id,Name,Stock_Market,Stock_Symbol,Stock_Price
+Exercise 7: 
+Create a workflow to extract data from Stock_DataFile_1and load the top 10 costliest stocks (based on the stock price) in a ‘|’ flat file. The target structure shall be 
+Stock_Market,Stock_Symbol,Stock_Price
+
+Exercise 8: 
+Create a workflow to extract data from Stock_DataFile_1and load only the NASDAQ stock market data.  A column surrogate key should be loaded with a continuous number. The target structure shall be 
+Suurogate_key,Trader_Id,Name,Stock_Market,Stock_Symbol,Stock_Price
+
+Exercise 9: 
+Create a workflow to extract data from Stock_DataFile_1 & Stock_DataFile_3 and load the target in the below CSV format
+	Trader_Id,Stock_Symbol,Company_Name,Stock_Price
+Hint: Use either connected or unconnected lookup
+Exercise 10: 
+Create a workflow to extract data from Stock_DataFile_1 & Stock_DataFile_2 and load the target in the ‘~ delimited format. The target structure shall be
+	Trader_Id,Name,Email,Gender,State,Latitude,Longtitude
+Note: Implement all types of join (Inner, Master Outer, Detail Outer) in a single mapping
+Exercise 11: 
+Create a workflow to extract data from Stock_DataFile_1 and load the costliest stock price for each stock in each stock market. The target shall be in the below TAB delimted format
+	Stock_Market,Stock_Symbol,Stock_Price
+
